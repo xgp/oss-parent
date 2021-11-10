@@ -34,22 +34,22 @@
     <snapshotRepository>
       <id>ossrh</id>
       <name>Sonatype OSS Snapshots Repository</name>
-      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+      <url>${ossrh.url}/content/repositories/snapshots</url>
     </snapshotRepository>
     <repository>
       <id>ossrh</id>
       <name>Sonatype OSS Release Staging Repository</name>
-      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+      <url>${ossrh.url}/service/local/staging/deploy/maven2/</url>
     </repository>
   </distributionManagement>
   
   <properties>
-    <!-- Maven config -->
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.test.skip>false</maven.test.skip>
     <maven.integration.skip>true</maven.integration.skip>
     <release.sign.skip>false</release.sign.skip>
     <java.version>1.8</java.version>
+    <ossrh.url>https://oss.sonatype.org</ossrh.url>
   </properties>
 
   <build>
@@ -145,6 +145,17 @@
           <artifactId>fmt-maven-plugin</artifactId>
           <version>2.12</version>
 	</plugin>
+       <plugin>
+         <groupId>org.sonatype.plugins</groupId>
+         <artifactId>nexus-staging-maven-plugin</artifactId>
+         <version>1.6.8</version>
+         <extensions>true</extensions>
+        <configuration>
+            <serverId>ossrh</serverId>
+            <nexusUrl>https://s01.oss.sonatype.org/</nexusUrl>
+           <autoReleaseAfterClose>true</autoReleaseAfterClose>
+         </configuration>
+       </plugin>
       </plugins>
     </pluginManagement>
   </build>
