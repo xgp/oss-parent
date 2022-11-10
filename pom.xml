@@ -4,7 +4,7 @@
   <groupId>com.github.xgp</groupId>
   <artifactId>oss-parent</artifactId>
   <packaging>pom</packaging>
-  <version>0.5-SNAPSHOT</version>
+  <version>0.4-SNAPSHOT</version>
 
   <name>${project.groupId}:${project.artifactId}</name>
   <description>Parent pom for oss projects</description>
@@ -54,6 +54,18 @@
 
   <build>
     <defaultGoal>install</defaultGoal>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-release-plugin</artifactId>
+        <version>3.0.0-M7</version>
+        <configuration>
+          <tagNameFormat>v@{project.version}</tagNameFormat>
+          <autoVersionSubmodules>true</autoVersionSubmodules>
+	  <releaseProfiles>releases</releaseProfiles>
+        </configuration>
+      </plugin>
+    </plugins>
     <pluginManagement>
       <plugins>
         <plugin>
@@ -106,15 +118,6 @@
 	</plugin>
 	<plugin>
           <groupId>org.apache.maven.plugins</groupId>
-          <artifactId>maven-release-plugin</artifactId>
-          <version>3.0.0-M7</version>
-          <configuration>
-            <tagNameFormat>v@{project.version}</tagNameFormat>
-            <autoVersionSubmodules>true</autoVersionSubmodules>
-          </configuration>
-	</plugin>
-	<plugin>
-          <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-jar-plugin</artifactId>
           <version>3.3.0</version>
           <executions>
@@ -145,12 +148,6 @@
           <artifactId>fmt-maven-plugin</artifactId>
           <version>2.19.0</version>
 	</plugin>
-	<plugin>
-          <groupId>org.sonatype.plugins</groupId>
-          <artifactId>nexus-staging-maven-plugin</artifactId>
-          <version>1.6.13</version>
-          <extensions>true</extensions>
-	</plugin>
       </plugins>
     </pluginManagement>
   </build>
@@ -178,7 +175,7 @@
     </profile>
     <profile>
       <!-- only sign artificats during release; not snapshots -->
-      <id>release-sign-artifacts</id>
+      <id>releases</id>
       <activation>
         <property>
           <name>performRelease</name>
@@ -208,9 +205,20 @@
             <groupId>org.sonatype.plugins</groupId>
             <artifactId>nexus-staging-maven-plugin</artifactId>
             <extensions>true</extensions>
+            <version>1.6.13</version>
+            <executions>
+              <execution>
+                <id>default-deploy</id>
+                <phase>deploy</phase>
+                <goals>
+                  <goal>deploy</goal>
+                </goals>
+              </execution>
+            </executions>
             <configuration>
 	      <serverId>ossrh</serverId>
 	      <nexusUrl>${ossrh.url}/</nexusUrl>
+	      <skipStaging>true</skipStaging>
 	      <autoReleaseAfterClose>true</autoReleaseAfterClose>
             </configuration>
           </plugin>
