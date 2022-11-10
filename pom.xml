@@ -203,16 +203,16 @@
                 </configuration>
               </execution>
             </executions>
-	    <plugin>
-              <groupId>org.sonatype.plugins</groupId>
-              <artifactId>nexus-staging-maven-plugin</artifactId>
-              <extensions>true</extensions>
-              <configuration>
-		<serverId>ossrh</serverId>
-		<nexusUrl>${ossrh.url}/</nexusUrl>
-		<autoReleaseAfterClose>true</autoReleaseAfterClose>
-              </configuration>
-	    </plugin>
+	  </plugin>
+	  <plugin>
+            <groupId>org.sonatype.plugins</groupId>
+            <artifactId>nexus-staging-maven-plugin</artifactId>
+            <extensions>true</extensions>
+            <configuration>
+	      <serverId>ossrh</serverId>
+	      <nexusUrl>${ossrh.url}/</nexusUrl>
+	      <autoReleaseAfterClose>true</autoReleaseAfterClose>
+            </configuration>
           </plugin>
         </plugins>
       </build>
