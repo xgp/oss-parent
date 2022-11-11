@@ -62,7 +62,7 @@
         <configuration>
           <tagNameFormat>v@{project.version}</tagNameFormat>
           <autoVersionSubmodules>true</autoVersionSubmodules>
-	  <releaseProfiles>releases</releaseProfiles>
+	  <releaseProfiles>release-sign-artifacts</releaseProfiles>
         </configuration>
       </plugin>
     </plugins>
@@ -175,7 +175,7 @@
     </profile>
     <profile>
       <!-- only sign artificats during release; not snapshots -->
-      <id>releases</id>
+      <id>release-sign-artifacts</id>
       <activation>
         <property>
           <name>performRelease</name>
