@@ -40,6 +40,6 @@ jobs:
           docker-registry-username: ${{ secrets.OSSRH_USERNAME }}
           docker-registry-password: ${{ secrets.OSSRH_PASSWORD }}
 
-          maven-development-version-number: ${parsedVersion.majorVersion}.\${parsedVersion.nextMinorVersion}-SNAPSHOT
-          maven-release-version-number: ${parsedVersion.majorVersion}.\${parsedVersion.minorVersion}
+          maven-development-version-number: ${parsedVersion.majorVersion}.${parsedVersion.nextMinorVersion}-SNAPSHOT
+          maven-release-version-number: ${parsedVersion.majorVersion}.${parsedVersion.minorVersion}
 
