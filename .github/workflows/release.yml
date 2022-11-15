@@ -33,6 +33,6 @@ jobs:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
           gpg-enabled: true
-          gpg-key-id: 59242F8D867FE304
+          gpg-key-id: BC6B4EADEB514AFD
           gpg-key: ${{ secrets.GPG_KEY }}
-          gpg-passphrase: ${{ secrets.GPG_PASSPHRASE }}
+
