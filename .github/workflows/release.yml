@@ -23,7 +23,7 @@ jobs:
         env:
           JAVA_HOME: /usr/lib/jvm/java-11-openjdk/
         with:
-          version-patch: true
+          version-minor: true
 
           git-release-bot-name: "phasetwo-bot"
           git-release-bot-email: "support@phasetwo.io"
