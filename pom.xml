@@ -4,7 +4,7 @@
   <groupId>com.github.xgp</groupId>
   <artifactId>oss-parent</artifactId>
   <packaging>pom</packaging>
-  <version>0.6</version>
+  <version>0.6.1-SNAPSHOT</version>
 
   <name>${project.groupId}:${project.artifactId}</name>
   <description>Parent pom for oss projects</description>
@@ -27,7 +27,7 @@
   <scm>
     <url>https://github.com/xgp/oss-parent</url>
     <connection>scm:git:git@github.com:xgp/oss-parent.git</connection>
-    <tag>v0.6</tag>
+    <tag>master</tag>
   </scm>
   
   <distributionManagement>
