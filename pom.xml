@@ -27,7 +27,7 @@
   <scm>
     <url>https://github.com/xgp/oss-parent</url>
     <connection>scm:git:git@github.com:xgp/oss-parent.git</connection>
-    <tag>v0.\6</tag>
+    <tag>master</tag>
   </scm>
   
   <distributionManagement>
@@ -219,7 +219,7 @@
 	      <serverId>ossrh</serverId>
 	      <nexusUrl>${ossrh.url}/</nexusUrl>
 	      <autoReleaseAfterClose>true</autoReleaseAfterClose>
-	      <autoDropAfterRelease>true</autoDropAfterRelease>
+	      <!-- <autoDropAfterRelease>true</autoDropAfterRelease> -->
             </configuration>
           </plugin>
         </plugins>
