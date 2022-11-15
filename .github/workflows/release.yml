@@ -32,7 +32,7 @@ jobs:
 
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
-          gpg-enabled: true
+          gpg-enabled: false
           gpg-key-id: EE987E9D73D27204E4F2C15359242F8D867FE304
           gpg-key: ${{ secrets.GPG_KEY }}
           gpg-passphrase: ${{ secrets.GPG_PASSPHRASE }}

@@ -66,6 +66,11 @@
 	  <releaseProfiles>releases</releaseProfiles>
         </configuration>
       </plugin>
+      <plugin> <!-- pretty up the code using google java standards `mvn fmt:format` -->
+        <groupId>com.spotify.fmt</groupId>
+        <artifactId>fmt-maven-plugin</artifactId>
+        <version>2.19</version>
+      </plugin>
     </plugins>
     <pluginManagement>
       <plugins>
@@ -143,11 +148,6 @@
               </manifestEntries>
             </archive>
           </configuration>
-	</plugin>
-	<plugin>
-          <groupId>com.coveo</groupId>
-          <artifactId>fmt-maven-plugin</artifactId>
-          <version>2.19.0</version>
 	</plugin>
       </plugins>
     </pluginManagement>
